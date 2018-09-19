@@ -1,0 +1,127 @@
+
+
+//==============================================================================
+// COLOR LEGEND
+//
+
+//--------------------------------------
+// Opacity
+//
+$high-opacity: 0.90;
+$medium-opacity: 0.80;
+$low-opacity: 0.55;
+
+$default-opacity: $medium-opacity;
+$alt-opacity: $high-opacity;
+
+
+//--------------------------------------
+// Grayscale Colors
+//
+$gray90: #ebebeb;
+$grey90: #ebebeb;
+$gray80: #d7d7d7;
+$grey80: #d7d7d7;
+$gray70: #c2c2c2;
+$grey70: #c2c2c2;
+$gray60: #acacac;
+$grey60: #acacac;
+$gray50: #959595;
+$grey50: #959595;
+$gray40: #7d7d7d;
+$grey40: #7d7d7d;
+$gray30: #626262;
+$grey30: #626262;
+$gray20: #464646;
+$grey20: #464646;
+$gray10: #262626;
+$grey10: #262626;
+
+//--------------------------------------
+// Debug Colors
+//
+$debug-color1: #F0C;
+$debug-color2: #0AF;
+$debug-color3: #0F0;
+
+
+//--------------------------------------
+// Brand Colors
+//
+$bright-white: #ffffff;
+$white: #f0f0f0;
+$red-light: #ff6060;
+$red: #BB4545;
+
+$aqua2: #064456;
+$aqua2-trans: rgba(6, 68, 86, $medium-opacity);
+$aqua3: #096A86;
+$aqua3-trans: rgba(9, 96, 110, $medium-opacity);
+$aqua4: #0FA2CD;
+$aqua5: #38C6F0;
+$aqua6: #3EEEFF;
+$aqua7: #00363C;
+$aqua8: #80D4E5;
+$aqua-light: #A0E8FF;
+
+$amber5: #EF6238;
+$amber6: #FF7F60;
+
+//==============================================================================
+// SPACING LEGEND
+//
+
+$spacing-small: 0.2em;
+$spacing-medium: 0.5em;
+$spacing-large: 1em;
+
+$padding-medium: 0.8em;
+
+//==============================================================================
+// FONT LEGEND
+//
+
+$sans-serif1: Geneva;
+$sans-serif2: "Tahoma";
+$sans-serif-default: Verdana, sans-serif;
+
+$serif1: Didot,Didot LT STD;
+$serif2: Hoefler Text,Garamond;
+$serif-default: Georgia, serif;
+
+$fixed1: "Lucida Console", "Lucida Sans Typewriter";
+$fixed2: Monaco, "Bitstream Vera Sans Mono";
+$fixed-default: monospace;
+
+$font-size-default: 20px;
+$line-height-base: 1.6em;
+
+//==============================================================================
+// BRAND LEGEND
+//
+
+$body-font-family: $sans-serif1, $sans-serif2, $sans-serif-default;
+$body-font-size: $font-size-default;
+$body-bg-color: $gray60;
+$body-text-color: $white;
+
+$heading-font-family: $sans-serif1, $sans-serif2, $sans-serif-default;
+
+$code-font-family: $fixed1, $fixed2, $fixed-default;
+
+$link-normal-color: lighten($amber6, 10%);
+$link-normal-bgcolor: transparent;
+$link-visited-color: lighten($amber6, 20%);
+$link-visited-bgcolor: transparent;
+$link-active-color: $red-light;
+$link-active-bgcolor: $white;
+$link-hover-color: $red-light;
+$link-hover-bgcolor: $white;
+$link-focus-color: $red-light;
+$link-focus-bgcolor: $white;
+
+$selection-color: $grey90;
+$selection-bgcolor: $red-light;
+
+$h1-glow-text: $aqua6;
+$h2-glow-text: $amber6;

@@ -1,0 +1,20 @@
+
+.button-cta {
+  width: 120px;
+  text-decoration: none;
+  padding: 1em;
+}
+
+.button-dark, a.button-dark {
+  background-color: $aqua2;
+  color: $aqua-light;
+}
+.button-light, a.button-light {
+  background-color: $aqua-light;
+  color: $aqua2;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+

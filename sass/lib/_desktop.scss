@@ -1,0 +1,206 @@
+
+/*
+Desktop
+*/
+@media  (min-width: 768px) {
+
+	body {
+		background: url(img/seattle-night-2017-oct.jpg) no-repeat fixed center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.wrap {
+		width: 300px;
+		height: 300px;
+		position: relative;
+		webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		transition: 0.5s;
+		color: #ffffff;
+
+		.face {
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			backface-visibility: hidden;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: white;
+			line-height: 50px;
+			text-align: center;
+		}
+
+		.front {
+			background-color: #f0c;
+			z-index: 10;
+		}
+
+		.back {
+			-webkit-transform: rotateY(180deg);
+			background-color: #0f0;
+		}
+	}
+
+	table {
+		display: block;
+		overflow-x: scroll;
+	}
+
+	td.mobile-hide, th.mobile-hide {
+		display: table-cell;
+	}
+
+	td.tablet-hide, th.tablet-hide {
+		display: table-cell;
+	}
+
+
+
+	article {
+		padding-top: 1em;
+		padding-bottom: 1em;
+		margin: 0 0 1em;
+	}
+
+	.form-info {
+		width: 50%;
+		float: left;
+	}
+
+	.form-message {
+		width: 50%;
+		float: right;
+	}
+
+
+
+	input[type=submit] {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+	nav {
+		float: left;
+
+
+		ul {
+			width: 660px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		li {
+			display: inline;
+			width: 100%;
+		}
+
+		a {
+			padding: $spacing-medium;
+			width: auto;
+		}
+	}
+
+
+	.map {
+		img {
+			width: 196px;
+			height: auto;
+		}
+	}
+
+	#main {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#footer {
+		width: 20rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#nav {
+		width: 100%;
+	}
+
+	#brand {
+
+		img {
+			height: auto;
+		}
+	}
+
+	#masthead {
+		width: 35rem;
+		margin-left: auto;
+		margin-right: auto;
+		@include clearfix;
+	}
+
+	.category-haiku  .entry {
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		p {
+			font-size: 1.6em;
+		}
+	}
+
+
+	.home {
+
+		#main p {
+			margin-right: 10px;
+		}
+
+		#main p.special {
+			margin-right: auto;
+		}
+
+
+		.main .content {
+			// background-size: 100% 434px;
+			margin-left: auto;
+			margin-right: auto;
+			height: 434px;
+			//border: 1px solid black;
+		}
+
+	}
+
+	.chart {
+		float: left;
+		margin-right: 1em;
+	}
+	.widget {
+		width: 100%;
+	}
+
+	#main {
+		margin: 2em auto $spacing-large;
+	}
+
+
+	#sidebar-home, #sidebar-blog {
+		width: 29.9%;
+		float: right;
+
+		.content {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+}
+
+
+

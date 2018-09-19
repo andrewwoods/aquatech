@@ -1,0 +1,153 @@
+
+
+
+
+a h1,
+a h2,
+a h3,
+a h4,
+a h5,
+a h6 { background-color: $debug-color1; color: #000000; }
+
+a h1:after { content: " BAD MARKUP! The A goes inside the H1"; }
+a h2:after { content: " BAD MARKUP! The A goes inside the H2"; }
+a h3:after { content: " BAD MARKUP! The A goes inside the H3"; }
+a h4:after { content: " BAD MARKUP! The A goes inside the H4"; }
+a h5:after { content: " BAD MARKUP! The A goes inside the H5"; }
+a h6:after { content: " BAD MARKUP! The A goes inside the H6"; }
+
+//-----------------------------------------------
+// Show the files types of documents to the user
+//-----------------------------------------------
+a[href$=".pdf"]:after { content: " (PDF)"; }
+a[href$=".doc"]:after { content: " (DOC)"; }
+a[href$=".xls"]:after { content: " (XLS)"; }
+
+a[href$=".pdf"][data-size]:after { content: " (PDF, " attr(data-size) ")"; }
+a[href$=".doc"][data-size]:after { content: " (DOC, " attr(data-size) ")"; }
+a[href$=".xls"][data-size]:after { content: " (XLS, " attr(data-size) ")"; }
+
+ul {
+	list-style-position: inside;
+	list-style-type: disc;
+	// padding-left: 2em;
+	margin-left: 0;
+
+	&.no-bullets {
+		list-style-type: none;
+	}
+
+	&.flat li {
+		display: inline-block;
+	}
+
+	&.inline {
+		display: inline-block;
+	}
+}
+
+ol {
+	list-style-position: inside;
+	// padding-left: 2em;
+	margin-left: 0;
+}
+
+//------------------------
+//   COMMON FORMATTING
+//------------------------
+.caps { text-transform: uppercase; }
+
+.clean { list-style-type: none; }
+
+
+
+.ten {  width: 9.9%; }
+.twenty { width: 19.9%; }
+.thirty { width: 29.9%; }
+.forty { width: 39.9%; }
+.fifty { width: 49.9%; }
+.sixty { width: 59.9%; }
+.seventy { width: 69.9%; }
+.eighty { width: 79.9%; }
+.ninety { width: 89.9%; }
+.hundred { width: 100%; }
+
+
+.completed {
+	text-decoration: line-through;
+}
+
+
+.no-border { border: none !important;  }
+
+
+.shaded {
+	background-color: $gray90;
+
+	.medium {
+		background-color: $gray70;
+	}
+
+	.dark {
+		background-color: $gray10;
+		color: #ffffff;
+	}
+}
+
+
+.message {
+	background-color: #00309f;
+	border: 2px solid #d8ebfa;
+	color: #d8ebfa;
+	margin: 1em 0;
+	padding: 0.5em;
+	@include rounded-corners;
+
+	p, div {
+		margin: 0.20em 0;
+	}
+}
+
+.error {
+	@extend .message;
+	background-color: #aa0808;
+	border: 2px solid #f9bbbb;
+	color: #f9bbbb;
+}
+
+.success {
+	@extend .message;
+	background-color: #008000;
+	border: 2px solid #ccf9cc;
+	color: #ccf9cc;
+}
+
+.warning {
+	@extend .message;
+	background-color: #B49463;
+	border: 2px solid #F9F9E9;
+	color: #F9F9E9;
+}
+
+text-left {
+	text-align: left;
+}
+
+text-center {
+	text-align: center;
+}
+
+text-right {
+	text-align: right;
+}
+
+//---------------------------
+//    Wordpress specific
+//---------------------------
+.alignnone,
+.alignleft { display: block; float: left;  margin-right: 1em; margin-bottom: 1em; }
+.aligncenter { margin-left: auto; margin-right: auto; display: block;  }
+.alignright { display: block; float: right; margin-left: 1em; margin-bottom: 1em; }
+.wp-caption-text { text-align: left; }
+
+

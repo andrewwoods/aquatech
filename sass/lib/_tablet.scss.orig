@@ -1,0 +1,45 @@
+
+/* 
+Tablet 
+*/
+<<<<<<< HEAD
+=======
+
+@media (min-width: 480px) {
+
+	nav {
+
+		ul {
+			width: 480px;
+			padding: 1em 0 0.5em;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		li {
+			display: inline;
+			width: 100%;
+		}
+
+		a {
+			padding: $spacing-small;
+			width: auto;
+		}
+	}
+}
+
+
+>>>>>>> dev
+@media  (min-width: 640px) {
+
+	td.mobile-hide, th.mobile-hide {
+		display: table-cell;	
+	}
+	td.tablet-hide, th.tablet-hide {
+		display: none;	
+	}
+
+}
+
+
+

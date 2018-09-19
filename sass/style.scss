@@ -1,0 +1,1006 @@
+/*
+Theme Name: AquaTech
+Author: Andrew Woods
+Author URI: http://andrewwoods.net/
+Version: 0.2.2
+Description: A new theme that's driven by SASS that makes use of mobile first
+principles, fluid grids, and relies on modernizr
+*/
+
+@import "settings.scss";
+@import "lib/mixins.scss";
+@import "lib/formatting.scss";
+
+
+
+.boxed {
+	background: $aqua2-trans;
+	border: 2px solid $aqua3;
+	color: $white;
+	font-size: 1.2em;
+	margin: $spacing-large 0;
+	padding: $spacing-large;
+}
+
+.boxed-aqua {
+	@extend .boxed;
+	@include rounded-corners-all($aqua3-trans, 16px);
+	border: none;
+}
+
+.boxed-tinted {
+	@extend .boxed;
+	$tint-bg: rgba(32, 32, 32, $default-opacity);
+	@include angled-corners-all($tint-bg, 16px);
+	border: none;
+}
+
+.boxed-special {
+	@extend .boxed;
+	$angled-bgcolor: rgba(6, 68, 86, $alt-opacity);
+	@include angled-corners-all($angled-bgcolor, 30px);
+	border: none;
+	color: $white;
+	font-size: 1.2em;
+}
+
+
+
+.mobile-hide {
+	display: none;
+}
+
+.tablet-hide {
+	display: none;
+}
+
+.screen-reader-text,
+.visually-hidden {
+	position:absolute;
+	margin:-1px;
+	padding:0;
+	height:1px;
+	width:1px;
+	overflow:hidden;
+	clip:rect(0 0 0 0);
+	border:0
+}
+
+//==============================================================================
+//		GLOBAL STYLES
+//==============================================================================
+
+* {
+	margin: 0;
+	padding: 0;
+	line-height: $line-height-base;
+	font-family: $body-font-family;
+	@include borderbox;
+}
+
+::-moz-selection { color: $selection-color;  background-color: $selection-bgcolor; }
+::-webkit-selection { color: $selection-color;  background-color: $selection-bgcolor; }
+::-o-selection { color: $selection-color; background-color: $selection-bgcolor; }
+::-ms-selection { color: $selection-color; background-color: $selection-bgcolor; }
+::selection { color: $selection-color;  background-color: $selection-bgcolor; }
+
+
+a {
+  background-color: transparent;
+  color: $link-normal-color;
+  font-size: inherit;
+
+  &:link {
+    background-color: $link-normal-bgcolor;
+    color: $link-normal-color;
+  }
+
+  &:visited {
+    background-color: $link-visited-bgcolor;
+    color:  $link-visited-color;
+  }
+
+  &:hover {
+    background-color: $link-hover-bgcolor;
+    color: $link-hover-color;
+  }
+
+  &:active {
+    background-color:  $link-active-bgcolor;
+    color: $link-active-color;
+  }
+
+  &:focus {
+    background-color: $link-active-bgcolor;
+    color: $link-active-color;
+  }
+}
+
+acronym {
+	border-bottom: 1px dashed $gray80;
+	color: $aqua4;
+	font-size: inherit;
+}
+
+
+body {
+	background-color: $body-bg-color;
+	color: $body-text-color;
+	font-size: $font-size-default;
+}
+
+
+blockquote {
+	font-size: 1.2em;
+	font-style: italic;
+	background-color: $aqua3;
+	color: $body-text-color;
+	@include rounded-corners(8px);
+	padding: $spacing-medium;
+}
+
+em {
+	color: $body-text-color;
+	font-style: italic;
+	font-size: inherit;
+}
+
+form {
+	padding: $spacing-medium;
+	border: 1px solid $aqua3;
+	width: 100%;
+
+	.col1 {
+		flex-grow: 1;
+	}
+	.col2 {
+		flex-grow: 1;
+	}
+}
+
+
+h1 {
+	color: $body-text-color;
+	font-family: $heading-font-family;
+	font-size: 1.6em;
+	margin: $spacing-small 0;
+	text-transform: uppercase;
+	@include glow-text($white, $h1-glow-text, 4px);
+	line-height: 1.2;
+
+
+	a,
+	a:link,
+	a:visited {
+		@include glow-text($white, $h1-glow-text, 4px);
+		background-color: transparent;
+		text-decoration: none;
+	}
+
+	a:hover {
+		@include glow-text($bright-white, $h1-glow-text, 8px);
+		background-color: transparent;
+	}
+	a:active {
+		@include glow-text($bright-white, $h1-glow-text, 8px);
+		background-color: transparent;
+	}
+	a:focus {
+		@include glow-text($bright-white, $h1-glow-text, 8px);
+		background-color: transparent;
+	}
+
+}
+
+
+h2 {
+	font-family: $heading-font-family;
+	font-size: 1.3em;
+	margin: $spacing-medium 0;
+	text-transform: uppercase;
+	@include glow-text($white, $h2-glow-text, 4px);
+	line-height: 1.2;
+
+	a,
+	a:link,
+	a:visited {
+		@include glow-text($white, $h2-glow-text, 4px);
+		background-color: transparent;
+		text-decoration: none;
+	}
+	a:hover {
+		background-color: transparent;
+		@include glow-text($bright-white, $h2-glow-text, 8px);
+
+	}
+	a:active {
+		background-color: transparent;
+		@include glow-text($bright-white, $h2-glow-text, 8px);
+	}
+	a:focus {
+		background-color: transparent;
+		@include glow-text($bright-white, $h2-glow-text, 8px);
+	}
+}
+
+h3 {
+	color: $white;
+	font-family: $heading-font-family;
+	font-size: 1.2em;
+	margin: $spacing-medium 0;
+	@include glow-text($white, $aqua5, 4px);
+	line-height: 1.2;
+
+	a,
+	a:link,
+	a:visited
+	{
+		background-color: transparent;
+		text-decoration: none;
+		@include glow-text($white, $aqua5, 4px);
+	}
+
+	a:hover {
+		background-color: transparent;
+		@include glow-text($bright-white, $aqua5, 8px);
+	}
+	a:active {
+		background-color: transparent;
+		@include glow-text($bright-white, $aqua5, 8px);
+	}
+	a:focus {
+		background-color: transparent;
+		@include glow-text($bright-white, $aqua5, 8px);
+	}
+}
+
+h4 {
+	font-family: $heading-font-family;
+	font-size: 1.2em;
+	text-shadow: 1px 1px 2px $amber5;
+	color: $white;
+	line-height: 1.2;
+
+	a,
+	a:link,
+	a:visited
+	{
+		color: $white;
+		background-color: transparent;
+		text-decoration: none;
+	}
+	a:hover {
+		color: $white;
+		background-color: transparent;
+		@include glow-text($bright-white, $amber5, 8px);
+	}
+	a:active {
+		color: $white;
+		background-color: transparent;
+		@include glow-text($bright-white, $amber5, 8px);
+	}
+	a:focus {
+		color: $white;
+		background-color: transparent;
+		@include glow-text($bright-white, $amber5, 8px);
+	}
+
+}
+
+h5 {
+	color: $white;
+	font-size: 1.4em;
+	font-family: $heading-font-family;
+	text-transform: uppercase;
+	line-height: 1.2;
+
+
+	a,
+	a:link,
+	a:visited
+	{
+		color: $white;
+		background-color: transparent;
+		text-decoration: none;
+	}
+	a:hover {
+		color: $aqua6;
+		background-color: transparent;
+	}
+	a:active {
+		color: $aqua6;
+		background-color: transparent;
+	}
+	a:focus {
+		color: $aqua6;
+		background-color: transparent;
+	}
+
+}
+
+h6 {
+	color: $white;
+	font-size: 1.2em;
+	font-family: $heading-font-family;
+	text-transform: uppercase;
+	line-height: 1.2;
+
+
+	a,
+	a:link,
+	a:visited
+	{
+		color: $white;
+		background-color: transparent;
+		text-decoration: none;
+	}
+	a:hover {
+		color: $amber6;
+		background-color: transparent;
+	}
+	a:active {
+		color: $amber6;
+		background-color: transparent;
+	}
+	a:focus {
+		color: $amber6;
+		background-color: transparent;
+	}
+
+}
+
+
+img.wp-image-907 {
+	width: 100% !important;
+	height: auto !important;
+}
+
+input, textarea {
+	width: 100%;
+	font-size: inherit;
+	border-top-style: inset;
+	border-left-style: inset;
+	padding: $spacing-small;
+	background-color: $bright-white;
+}
+
+input[type=submit] {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: $spacing-medium;
+	border-top: 2px solid $grey30;
+	border-right: 2px solid $grey60;
+	border-bottom: 2px solid $grey80;
+	border-left: 2px solid $grey40;
+}
+
+
+kbd {
+	font-family: $code-font-family;
+	font-size: inherit;
+}
+
+label {
+	display: block;
+	padding: $spacing-medium 0;
+}
+
+nav {
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+
+	// @todo use flexbox http://css-tricks.com/using-flexbox/
+	ul {
+		width: 100%;
+		padding: $spacing-medium 0;
+	}
+
+	a {
+		display: inline-block;
+		color: $white;
+		padding: $spacing-medium;
+		text-decoration: none;
+		font-size: 1em;
+		font-family: $sans-serif1, $sans-serif2, $sans-serif-default;
+
+		width: 100%;
+
+
+		&:link,
+		&:visited {
+			$corner-size: 8px;
+			$corner-size-alt: 8px;
+			$button-bg: $aqua7;
+			background: $aqua7;
+			color: $white;
+			border: 1px solid $aqua3;
+			border-radius: $corner-size;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			$corner-size: 8px;
+			$corner-size-alt: 8px;
+			$button-bg: $red;
+			background: $button-bg;
+			color: $white;
+			border: 1px solid $white;
+		}
+
+	}
+
+	li {
+		list-style-type: none;
+		margin: 0;
+	}
+
+	li:first {
+		padding-left: 0;
+	}
+
+	ul ul {
+		display: none;
+	}
+
+	.sub-menu {
+		border-radius: 8px;
+
+		a {
+			width: 100%;
+			border-collapse: collapse;
+		}
+	}
+
+	.current-menu-item {
+
+		> a {
+			$corner-size: 8px;
+			$corner-size-alt: 8px;
+			$button-bg: $aqua6;
+			background: $button-bg;
+			color: $aqua7;
+
+			&:hover,
+			&:active,
+			&:focus
+			{
+				border: 1px solid $white;
+			}
+		}
+
+
+	}
+
+	.current_page_ancestor  {
+
+		li {
+			display: block;
+		}
+
+		> a {
+			background-color: $red;
+			color: $white;
+		}
+
+	}
+
+
+	li:focus, li:hover, li.is-open {
+		z-index: 10;
+
+		ul {
+			border: 1px solid $aqua3;
+			padding: 0.5em;
+			background-color: $aqua7;
+			top: 1em;
+			left: 1em;
+			display: block;
+			width: 12em;
+		}
+
+		li {
+			display: block;
+		}
+
+	}
+}
+
+.touch {
+	// This expands the submenu for current page on touch devices
+	// to enable access to its contents.
+	.current-menu-item {
+		ul {
+			display: block;
+		}
+	}
+
+}
+
+.skip {
+
+	a {
+		background-color: transparent;
+		padding: $spacing-medium;
+		text-decoration: none;
+		font-size: 1em;
+		font-family: $sans-serif1, $sans-serif2, $sans-serif-default;
+		@include rounded-corners($spacing-small);
+		width: 100%;
+	}
+
+	a:link,
+	a:visited {
+		display: inline-block;
+		position:absolute;
+		left:-10000px;
+		top:auto;
+		width:1px;
+		height:1px;
+		overflow:hidden;
+	}
+
+	a:hover,
+	a:active,
+	a:focus {
+		display: inline-block;
+		background-color: $red-light;
+		color: $white;
+		border: 1px solid $white;
+		position:static;
+		width:auto;
+		height:auto;
+	}
+}
+
+ol {
+	list-style-position: inside;
+	font-size: $body-font-size;
+
+	&.no-bullets {
+		list-style-type: none;
+	}
+}
+
+ul {
+	list-style-position: inside;
+	font-size: $body-font-size;
+
+	&.no-bullets {
+		list-style-type: none;
+	}
+}
+
+
+// here
+
+p {
+	font-size: $body-font-size;
+	line-height: $line-height-base;
+	margin: $spacing-large 0;
+	padding: $spacing-medium 0;
+  word-wrap: break-word;
+}
+
+p.special {
+	font-size: 1em;
+	margin: 0 auto;
+
+	strong {
+		color: $bright-white;
+		background-color: transparent;
+	}
+}
+
+.home p.special {
+	margin-top: 0;
+}
+
+
+pre, .code {
+	@include rounded-corners;
+	background-color: $gray10;
+	color: $white;
+	margin: $spacing-large 0;
+	padding: $spacing-medium;
+	font-size: 0.9em;
+	font-family: $code-font-family;
+	overflow-x: scroll;
+}
+
+
+select {
+	width: 100%;
+}
+
+
+strong {
+	font-weight: bold;
+	font-size: inherit;
+}
+
+table {
+	margin: $spacing-large 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td {
+	padding: $spacing-medium;
+}
+
+th {
+	padding: $spacing-medium;
+	text-transform: uppercase;
+	background-color: $grey90;
+	color: $aqua2;
+}
+
+tr {
+	background-color: $aqua2;
+	color: $white;
+
+	&:nth-child(even){
+		background-color: $aqua3;
+		color: $white;
+	}
+
+}
+
+
+textarea {
+	width: 100%;
+	height: 12em;
+}
+
+
+//------------------------------------------------------------------------------
+// by class
+//------------------------------------------------------------------------------
+
+.alt-blog .photo {
+	width: 100%;
+}
+
+/*
+.borderradius nav {
+	@include rounded-corners;
+	padding: $spacing-medium;
+}
+*/
+
+
+.clean { list-style-type: none; }
+
+.clear { clear: both; }
+
+.clearfix {
+	@include clearfix();
+}
+
+
+.commentlist {
+	border-top: 2px solid $amber5;
+	list-style-type: none;
+	background-color: transparent;
+	color: $white;
+	padding: 0 $spacing-medium;
+}
+
+.comment {
+	border-bottom: 1px solid $gray20;
+	padding: $spacing-medium 0;
+}
+
+.comment.even {
+	border-bottom: 1px dashed $gray20;
+}
+
+
+.form-info {
+}
+
+.form-message {
+}
+
+.map {
+	img {
+		width: 100px;
+		height: auto;
+		display: block;
+	}
+}
+
+.offscreen {
+    display: block;
+    text-indent: -9999em;
+}
+
+
+.invisible {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+
+/*
+*/
+
+.depth-2 { padding-left: 4px; }
+.depth-3 { padding-left: 8px; }
+.depth-4 { padding-left: 12px; }
+.depth-5 { padding-left: 16px; }
+.depth-6 { padding-left: 20px; }
+.depth-7 { padding-left: 24px; }
+.depth-8 { padding-left: 28px; }
+.depth-9 { padding-left: 32px; }
+.depth-10 { padding-left: 36px; }
+
+.no-comments {
+	@extend .warning;
+	@include rounded-corners;
+}
+
+.projects {
+	h2 {
+		margin-top: 0;
+	}
+}
+
+.publishing-info {
+	img {
+		float: left;
+		width: 96px;
+		margin-right: $spacing-small;
+		margin-bottom: $spacing-small;
+	}
+
+	.p-author {
+		line-height: 1;
+		display: block;
+		margin-bottom: $spacing-small;
+	}
+
+	.dt-published {
+		display: block;
+		margin-bottom: $spacing-small;
+		font-size: 1rem;
+	}
+}
+
+
+.role {
+	background-color: $amber6;
+	padding-left: $spacing-medium;
+	font-family: $sans-serif1, $sans-serif2, $sans-serif-default;
+	@include rounded-corners;
+}
+
+.sidebar {
+	.photo {
+		margin-right: 0;
+	}
+
+	table {
+		width: 100%;
+	}
+}
+
+
+.sticky-post {
+	padding: $spacing-medium;
+	background-color: $gray90;
+	color: $white;
+}
+
+.technology ul { display: inline-block; }
+.technology li { display: inline; }
+
+.contribution ul { display: inline-block; }
+.contribution li { display: inline; }
+
+
+.sidebar .widget {
+	width: 100%;
+
+	@include rounded-corners(8px);
+    background-color: $aqua2;
+    border: 1px solid $white;
+    color: $white;
+	line-height: $line-height-base;
+    margin: 0 0 $spacing-large;
+	padding: $spacing-medium;
+
+
+	h1 {
+		color: $white;
+		text-shadow: none;
+
+		a,
+		a:link,
+		a:visited {
+			color: $aqua2;
+		}
+	}
+
+	h2 {
+		color: $white;
+		font-size: 1.2rem;
+		text-shadow: none;
+
+		a,
+		a:link,
+		a:visited {
+			color: $aqua2;
+		}
+	}
+
+	h3 {
+		color: $white;
+		text-shadow: none;
+
+		a,
+		a:link,
+		a:visited {
+			color: $aqua3;
+		}
+	}
+
+	form {
+		border: none;
+		padding: 0;
+	}
+
+	input[type="text"] {
+		width: 100%;
+	}
+
+}
+
+
+//------------------------------------------------------------------------------
+// By ID
+//------------------------------------------------------------------------------
+
+#brand {
+	@include glow-text($white, $aqua6);
+	background-color: transparent;
+	display: block;
+	padding: 0 0;
+	font-size: 1em;
+	line-height: 1;
+	text-decoration: none;
+	font-family: $sans-serif1, $sans-serif2, $sans-serif-default;
+
+	img {
+		display: block;
+		width: 100px;
+	}
+}
+
+
+#masthead {
+	background-color: transparent;
+	color: $white;
+	margin-bottom: $spacing-medium;
+}
+
+
+#footer {
+	clear: both;
+}
+
+
+#main, section.main {
+	width: 100%;
+	max-width: 758px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.content {
+		margin: $spacing-medium 0;
+	}
+
+	.home {
+		background-color: transparent;
+		min-height:  358px;
+		margin-top: $spacing-large;
+	}
+
+}
+
+
+
+#sidebar-home, #sidebar-blog {
+	.content {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.copyright {
+	text-align: center;
+}
+
+nav.social-links {
+	display: block;
+	vertical-align: top;
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+
+
+	ul {
+		width: 320px;
+		text-align: center;
+	}
+
+	li {
+		width: auto;
+		display: inline-block;
+	}
+
+	a {
+		display: inline-block;
+		padding: 0;
+		background: transparent;
+
+		&:link, &:visited {
+			background: transparent;
+			border: none;
+		}
+
+		&:hover, &:focus, &:active {
+			background: transparent;
+			border: none;
+		}
+	}
+
+}
+
+.calls-to-action  {
+	background-color: $grey20;
+	color: $gray90;
+	border-radius: 0.5em;
+}
+
+.textwidget {
+	p {
+		padding: 0.8em;
+	}
+}
+
+#page {
+  width: 100%;
+}
+
+
+
+//==============================================================================
+//	MEDIA QUERIES
+//==============================================================================
+
+.page-content {
+	margin: 1em 0;
+	clear: both;
+}
+.map {
+	img {
+		margin: 1em 0.5em;
+		width: 160px;
+		height: auto;
+		display: block;
+	}
+}
+
+@import "lib/buttons";
+@import "lib/mobile";
+@import "lib/tablet";
+@import "lib/desktop";
+
+

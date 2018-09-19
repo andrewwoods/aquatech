@@ -1,0 +1,131 @@
+
+//==============================================================================
+//		DEBUG STYLES
+//------------------------------------------------------------------------------
+// Look for things that are wrong. Tell them how to make it right.
+//==============================================================================
+$debug-error-color: #f00;
+$debug-deprecated-color: #f0c;
+$debug-obsolete-color: #c0f;
+$debug-warning-color: #ff0;
+
+$message-obsolete: 'Obsolete!: ';
+$message-warning: 'Warning!: ';
+$message-deprecated: 'Deprecated!: ';
+$message-bad-practice: 'Bad Practice!: ';
+
+
+@for $i from 1 through 6 {
+  a h#{$i} {
+    background-color: $debug-warning-color;
+    color: black;
+    font-weight: bold;
+
+    &::after {
+      content: " #{$message-warning} the <a> should be inside the <h1>";
+    }
+  }
+
+}
+
+a[name] {
+  background-color: $debug-deprecated-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-deprecated} we no longer use the name attribute. use 'id' instead";
+  }
+}
+
+
+
+a[href="#"] {
+  background-color: $debug-error-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-bad-practice} this is not a real link, try <button> instead";
+  }
+}
+
+
+
+acronym {
+  background-color: $debug-deprecated-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-deprecated} <acronym> is deprecated, use <abbr>";
+  }
+}
+
+applet {
+  background-color: $debug-deprecated-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-deprecated} <applet> is deprecated, use <embed> or <object> instead";
+  }
+}
+
+bgsound {
+  background-color: $debug-deprecated-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-deprecated} <bgsound> is deprecated, use <audio> instead";
+  }
+}
+
+
+dir {
+  background-color: $debug-deprecated-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-deprecated} <dir> is deprecated, use <ul> instead";
+  }
+}
+
+frame,
+frameset,
+noframes {
+  background-color: $debug-deprecated-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-deprecated} either use <iframe> with CSS, or use server side programming";
+  }
+}
+
+img[border] {
+  background-color: $debug-obsolete-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-obsolete} use CSS instead";
+  }
+}
+
+
+[onclick] {
+  background-color: $debug-error-color;
+  color: white;
+  font-weight: bold;
+
+  &::after {
+    content: " #{$message-bad-practice} inline Javascript is bad for many reasons. Use Unobstrusive Javascript instead";
+  }
+
+}
+
+
+

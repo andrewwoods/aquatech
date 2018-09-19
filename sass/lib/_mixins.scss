@@ -1,0 +1,199 @@
+//  
+// project mixins.less 
+// author Andrew Woods <atwoods1@gmail.com>
+//
+
+
+
+
+//-----------------
+//    FUNCTIONS
+//-----------------
+@mixin borderbox {
+	/* apply a natural box layout model to all elements */
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+@mixin colors($main: "#009f00", $bg: "transparent") {
+	color: #{$main};
+	background-color: #{$bg};
+}
+
+
+@mixin links($main-color: "#ffffff", $visited-color: "#ff7f00", $highlight: "#9f009f", $bgcolor: "#3a3a3a") {
+
+	&:link {
+		color: #{$main-color};
+		background-color: #{$bgcolor};
+	}	
+
+
+	&:visited {
+		color: #{$visited-color};
+		background-color: #{$bgcolor};
+	}
+
+	&:hover,
+	&:focus {
+		color: #{$highlight};
+		background-color: #{$bgcolor};
+	}
+	&:active {
+		color: #{$bgcolor};
+		background-color: #{$highlight};
+	}
+	
+}
+
+@mixin clearfix {
+
+	/* For modern browsers */
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear:both;
+	}
+
+	/* For IE 6/7 (trigger hasLayout) */
+	& {
+		*zoom: 1;
+	}
+}
+
+
+
+@function calculate-rem($size) {
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size; // Fallback in px
+	font-size: calculate-rem($size);
+}
+
+@mixin rounded-corners($radius: 6px) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin rounded-corners-all($bg-color: $aqua4, $corner-size: 8px) {
+
+	background: $bg-color;
+	border-radius: $corner-size;
+}
+
+
+@mixin angled-corner-top-left($bg-color: $aqua4, $corner-size: 8px) {
+
+	background: $bg-color;
+	background:
+	  linear-gradient(135deg, transparent $corner-size, $bg-color 0) top left;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+@mixin angled-corner-top-right($bg-color: $aqua4, $corner-size: 8px) {
+
+	background: $bg-color;
+	background:
+	  linear-gradient(-135deg, transparent $corner-size, $bg-color 0) top right;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+
+}
+
+@mixin angled-corners-all($bg-color: $aqua4, $corner-size: 8px) {
+
+	background: $bg-color;
+	background:
+	  linear-gradient(135deg, transparent $corner-size, $bg-color 0) top left,
+	  linear-gradient(-135deg, transparent $corner-size, $bg-color 0) top right,
+	  linear-gradient(45deg, transparent $corner-size, $bg-color 0) bottom left,
+	  linear-gradient(-45deg, transparent $corner-size, $bg-color 0) bottom right;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+@mixin angled-corners-top($bg-color: $aqua4, $corner-size: 8px) {
+
+	background: $bg-color;
+	background:
+	  linear-gradient(135deg, transparent $corner-size, $bg-color 0) top left,
+	  linear-gradient(-135deg, transparent $corner-size, $bg-color 0) top right;
+	background-size: 50% 100%;
+	background-repeat: no-repeat;
+}
+
+@mixin angled-corners-bottom($bg-color: $aqua4, $corner-size: 8px) {
+
+	background: $bg-color;
+	background:
+	  linear-gradient(45deg, transparent $corner-size, $bg-color 0) bottom left,
+	  linear-gradient(-45deg, transparent $corner-size, $bg-color 0) bottom right;
+	background-size: 50% 100%;
+	background-repeat: no-repeat;
+}
+
+
+@mixin opacity($value){
+	opacity: $value;	
+}
+
+@mixin box-shadow ($x: 0, $y: 0, $blur: 1px, $spread: 0, $color: #000) {
+	-moz-box-shadow: $arguments;
+	-webkit-box-shadow: $arguments;
+	box-shadow: $arguments;
+}
+
+@mixin tab($topleft: 10px, $topright: 10px, $padding: 6px) {
+	border: 1px solid #707070; padding: $padding;
+
+	-webkit-border-top-left-radius: $topleft;
+	-webkit-border-top-right-radius: $topright;
+	-moz-border-radius-topleft: $topleft;
+	-moz-border-radius-topright: $topright;
+	border-top-left-radius: $topleft;
+	border-top-right-radius: $topright;
+}
+
+@mixin text-shadow($color: #000, $top: "2px", $right: "2px", $bottom: "2px", $left: "2px" ) {
+	text-shadow: $color $top $right $bottom $left; 
+}
+
+@mixin glow-text($text-color: #FFF, $glow-color: #F0C, $glow-size: 8px){
+	color: $text-color;
+	text-shadow: 0px 0px $glow-size $glow-color;
+}
+
+
+
+
+//--------------
+//    Layout
+//--------------
+// 
+@mixin boxed($border-color: #707070, $box-padding: 5px)  { 
+	border: 1px solid $border-color; 
+	padding: $box-padding;	
+
+	.thick { 
+		border-width: 3px; 
+		padding: 6px; 
+	}
+}
+
+@mixin border($width: 1px, $style: solid, $color: #c0c0c0) {
+	border: $arguments;
+}
+
+
+
+// END OF FILE

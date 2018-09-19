@@ -1,0 +1,14 @@
+/*
+ * debug.css - Use this to identify problems in your markup
+ *
+ * Keep this on the internet somewhere, and make it read-only.
+ * When you're debugging a web project, use your browser developer tools
+ * to add a <link> to this stylesheet.
+ */
+@import "lib/mixins.scss";
+@import "lib/debug.scss";
+
+body {
+  background-color: #666;
+  color: #0f0;
+}

@@ -1,0 +1,150 @@
+/*
+ * debug.css - Use this to identify problems in your markup
+ *
+ * Keep this on the internet somewhere, and make it read-only.
+ * When you're debugging a web project, use your browser developer tools
+ * to add a <link> to this stylesheet.
+ */
+a h1 {
+  background-color: #ff0;
+  color: black;
+  font-weight: bold;
+}
+a h1::after {
+  content: " Warning!:  the <a> should be inside the <h1>";
+}
+
+a h2 {
+  background-color: #ff0;
+  color: black;
+  font-weight: bold;
+}
+a h2::after {
+  content: " Warning!:  the <a> should be inside the <h1>";
+}
+
+a h3 {
+  background-color: #ff0;
+  color: black;
+  font-weight: bold;
+}
+a h3::after {
+  content: " Warning!:  the <a> should be inside the <h1>";
+}
+
+a h4 {
+  background-color: #ff0;
+  color: black;
+  font-weight: bold;
+}
+a h4::after {
+  content: " Warning!:  the <a> should be inside the <h1>";
+}
+
+a h5 {
+  background-color: #ff0;
+  color: black;
+  font-weight: bold;
+}
+a h5::after {
+  content: " Warning!:  the <a> should be inside the <h1>";
+}
+
+a h6 {
+  background-color: #ff0;
+  color: black;
+  font-weight: bold;
+}
+a h6::after {
+  content: " Warning!:  the <a> should be inside the <h1>";
+}
+
+a[name] {
+  background-color: #f0c;
+  color: white;
+  font-weight: bold;
+}
+a[name]::after {
+  content: " Deprecated!:  we no longer use the name attribute. use 'id' instead";
+}
+
+a[href="#"] {
+  background-color: #f00;
+  color: white;
+  font-weight: bold;
+}
+a[href="#"]::after {
+  content: " Bad Practice!:  this is not a real link, try <button> instead";
+}
+
+acronym {
+  background-color: #f0c;
+  color: white;
+  font-weight: bold;
+}
+acronym::after {
+  content: " Deprecated!:  <acronym> is deprecated, use <abbr>";
+}
+
+applet {
+  background-color: #f0c;
+  color: white;
+  font-weight: bold;
+}
+applet::after {
+  content: " Deprecated!:  <applet> is deprecated, use <embed> or <object> instead";
+}
+
+bgsound {
+  background-color: #f0c;
+  color: white;
+  font-weight: bold;
+}
+bgsound::after {
+  content: " Deprecated!:  <bgsound> is deprecated, use <audio> instead";
+}
+
+dir {
+  background-color: #f0c;
+  color: white;
+  font-weight: bold;
+}
+dir::after {
+  content: " Deprecated!:  <dir> is deprecated, use <ul> instead";
+}
+
+frame,
+frameset,
+noframes {
+  background-color: #f0c;
+  color: white;
+  font-weight: bold;
+}
+frame::after,
+frameset::after,
+noframes::after {
+  content: " Deprecated!:  either use <iframe> with CSS, or use server side programming";
+}
+
+img[border] {
+  background-color: #c0f;
+  color: white;
+  font-weight: bold;
+}
+img[border]::after {
+  content: " Obsolete!:  use CSS instead";
+}
+
+[onclick] {
+  background-color: #f00;
+  color: white;
+  font-weight: bold;
+}
+[onclick]::after {
+  content: " Bad Practice!:  inline Javascript is bad for many reasons. Use Unobstrusive Javascript instead";
+}
+
+body {
+  background-color: #666;
+  color: #0f0;
+}
